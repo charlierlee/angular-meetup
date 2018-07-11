@@ -1,0 +1,46 @@
+2018-07-11T18:50:04.992Z - info:   [73907] *** FOLDER: /Users/charlie/angular-meetup ***
+2018-07-11T18:50:04.993Z - info:   [73907] VSTSVSCode/1.136.0 (VSCode 1.25.0; Darwin 17.6.0; Node 7.9.0)
+2018-07-11T18:50:04.995Z - debug:  [73907] Looking for an External Context at /Users/charlie/angular-meetup
+2018-07-11T18:50:04.995Z - debug:  [73907] No External Context at /Users/charlie/angular-meetup
+2018-07-11T18:50:05.002Z - debug:  [73907] Looking for TFVC repository at /Users/charlie/angular-meetup
+2018-07-11T18:50:05.003Z - debug:  [73907] TFVC Creating Tfvc object with localPath='undefined'
+2018-07-11T18:50:05.004Z - debug:  [73907] Using TFS proxy: 
+2018-07-11T18:50:05.004Z - debug:  [73907] TFVC Retrieved from settings; localPath='/Users/charlie/Downloads/TEE-CLC-14.123.1/tf'
+2018-07-11T18:50:05.004Z - debug:  [73907] TFVC Repository created with repositoryRootFolder='/Users/charlie/angular-meetup'
+2018-07-11T18:50:05.005Z - debug:  [73907] TFVC Repository.CheckVersion
+2018-07-11T18:50:05.007Z - debug:  [73907] TFVC: tf add -noprompt -?
+2018-07-11T18:50:05.012Z - debug:  [73907] TFVC: spawned new process (duration: 4ms)
+2018-07-11T18:50:05.019Z - debug:  [73907] TFVC: spawned new process (duration: 7ms)
+2018-07-11T18:50:06.722Z - debug:  [73907] TFVC: add exit code: 0 (duration: 1714ms)
+2018-07-11T18:50:06.723Z - debug:  [73907] TFVC Minimum required version: 14.0.4
+2018-07-11T18:50:06.723Z - debug:  [73907] TFVC (TF.exe, TF.cmd) version: 14.123.1.201709051449
+2018-07-11T18:50:06.724Z - debug:  [73907] TFVC Repository.FindWorkspace with localPath='/Users/charlie/angular-meetup'
+2018-07-11T18:50:06.724Z - debug:  [73907] TFVC: tf workfold -noprompt ********
+2018-07-11T18:50:06.728Z - debug:  [73907] TFVC: spawned new process (duration: 3ms)
+2018-07-11T18:50:06.892Z - debug:  [73907] TFVC: workfold exit code: 100 (duration: 167ms)
+2018-07-11T18:50:06.894Z - debug:  [73907] TFVC errors (via stderr): An argument error occurred: The workspace could not be determined from any argument paths or the current working directory.
+
+2018-07-11T18:50:06.894Z - debug:  [73907] TFVC errors (via stdout): Team Explorer Everywhere Command Line Client (version 14.123.1.201709051449)
+
+ workfold command:
+
+  Creates, modifies, or displays information about the mappings between your
+  workspace folders and the source control server folders to which they
+  correspond.
+
+ Valid option sets:
+
+  workfold [-collection:<url>] [-workspace:<value>] <serverFolder>
+  workfold [-map] [-collection:<url>] [-workspace:<value>] <serverFolder>
+           <localFolder>
+  workfold [-workspace:<value>]
+  workfold <localFolder>
+  workfold -cloak [-collection:<url>] [-workspace:<value>]
+           <serverFolder>|<localFolder>
+  workfold -decloak [-collection:<url>] [-workspace:<value>]
+           <serverFolder>|<localFolder>
+  workfold -unmap [-collection:<url>] [-workspace:<value>]
+           <serverFolder>|<localFolder>
+
+
+2018-07-11T18:50:06.895Z - error:  [73907] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).

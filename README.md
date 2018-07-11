@@ -1,7 +1,7 @@
 # angular-meetup
 This component should be use to access a project using Oauth2 through of Meetup.com API. With this component is possible show data of logged member, groups, events and RSVP.
 
-[![Build Status](https://travis-ci.org/rodrigo-morais/angular-meetup.svg?branch=master)](https://travis-ci.org/rodrigo-morais/angular-meetup)
+[![Build Status](https://travis-ci.org/charlierlee/angular-meetup.svg?branch=master)](https://travis-ci.org/charlierlee/angular-meetup)
 
 ## Installation
 
@@ -12,7 +12,7 @@ $ bower install angular-meetup --save-dev
 ```
 
 ## Example
-<a href="http://rodrigo-morais.github.io/angular-meetup-example">A demonstration how the component should be used.</a>
+<a href="http://charlierlee.github.io/angular-meetup-example">A demonstration how the component should be used.</a>
 
 ## Dependencies
 To use this component is necessary loading the components below:
@@ -215,7 +215,7 @@ function meetupController($scope, rmMeetupRSVPsService){
 
 ## Groups directive
 It's a directive to to present groups that exist in Meetup.com. The directive can present the data of groups in format of list or table. To use this directive is necessary inform the access token and one form to find the groups data.
-The form of filter data of group is the same used in groups service using group ID, topic or parameters. Go to <a href="https://github.com/rodrigo-morais/angular-meetup#groups-service">Groups services</a> to see details about how work with these filters.
+The form of filter data of group is the same used in groups service using group ID, topic or parameters. Go to <a href="https://github.com/charlierlee/angular-meetup#groups-service">Groups services</a> to see details about how work with these filters.
 
 ```sh
 <rm-meetup-groups
@@ -260,7 +260,7 @@ There some parameters that could be informed to configure the group directive.
 
 ## Events directive
 It's a directive to to present events that exist in Meetup.com. The directive can present the data of events in format of list or table. To use this directive is necessary inform the access token and one form to find the events data.
-The form of filter data of event is the same used in events service using group ID, event ID or parameters. Go to <a href="https://github.com/rodrigo-morais/angular-meetup#events-service">Events services</a> to see details about how work with these filters.
+The form of filter data of event is the same used in events service using group ID, event ID or parameters. Go to <a href="https://github.com/charlierlee/angular-meetup#events-service">Events services</a> to see details about how work with these filters.
 
 ```sh
 <rm-meetup-events

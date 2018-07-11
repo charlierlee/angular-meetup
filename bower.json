@@ -7,7 +7,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rodrigo-morais/angular-meetup.git"
+    "url": "https://github.com/charlierlee/angular-meetup.git"
   },
   "description": "Angular component to authentication with oauth2 using meetup login.",
   "main": "./dist/angular-meetup.js",

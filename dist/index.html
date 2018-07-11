@@ -1,0 +1,247 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/angular-meetup-oauth.css">
+        <link rel="stylesheet" href="assets/style.css">
+    </head>
+    <body ng-app="myApp">
+        <div ng-controller="MeetupController">
+            <rm-meetup-oauth refresh-token="refresh(token, expiresIn)">
+                Connect in Meetup.com API
+            </rm-meetup-oauth>
+            <br />
+            <label>Token:</label>
+            &nbsp;
+            <span>{{token}}</span>
+            <br />
+            <label>Expires In:</label>
+            &nbsp;
+            <span>{{expiresIn}}</span>
+            <br />
+            <button data-ng:click="clear()">CLEAR</button>
+            <br />
+            <button data-ng:click="refreshOauthAccess()">Refresh Oauth Access</button>
+            <button data-ng:click="getAllGroups()">
+                Get By AngularJS topic
+            </button>
+            <button data-ng:click="getGroup()">Get Group By ID</button>
+            <button data-ng:click="getGroupByParameters()">Get Groups By Gerenric Parameter</button>
+            <button data-ng:click="getEvents()">Get Event By Group</button>
+            <button data-ng:click="getEvent()">Get Event By Event ID</button>
+            <button data-ng:click="getEventsByParameters()">Get Event By Gerenric Parameter</button>
+            <button data-ng:click="getRSVPsByEvent()">Get RSVPs</button>
+            <br />
+            <br />
+            <table data-ng:if="member != null">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align: center; border:solid 1px #000000">
+                            Member
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Field
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Value
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>{{member.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{member.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td>{{member.country}}</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>{{member.city}}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>{{member.status}}</td>
+                    </tr>
+                    <tr>
+                        <td>Photo</td>
+                        <td>
+                            <img data-ng:src="{{member.photo.photo_link}}" alt="photo" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table data-ng:if="groups != null">
+                <thead>
+                    <tr>
+                        <th colspan="4" style="text-align: center; border:solid 1px #000000">
+                            Groups
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left; min-width: 40px; border:solid 1px #000000">
+                            ID
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Name
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Country
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            City
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng:repeat="group in groups">
+                        <td>{{group.id}}</td>
+                        <td>{{group.name}}</td>
+                        <td>{{group.country}}</td>
+                        <td>{{group.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table data-ng:if="events != null">
+                <thead>
+                    <tr>
+                        <th colspan="4" style="text-align: center; border:solid 1px #000000">
+                            Events
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left; min-width: 40px; border:solid 1px #000000">
+                            ID
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng:repeat="event in events">
+                        <td>{{event.id}}</td>
+                        <td>{{event.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table data-ng:if="rsvps != null">
+                <thead>
+                    <tr>
+                        <th colspan="4" style="text-align: center; border:solid 1px #000000">
+                            RSVPs
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left; min-width: 40px; border:solid 1px #000000">
+                            ID
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Name
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Photo
+                        </th>
+                        <th style="text-align: left; min-width: 100px; border:solid 1px #000000">
+                            Response
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng:repeat="rsvp in rsvps">
+                        <td>{{rsvp.member.member_id}}</td>
+                        <td>{{rsvp.member.name}}</td>
+                        <td>
+                            <img data-ng:src="{{rsvp.member_photo.photo_link}}" alt="photo" />
+                        </td>
+                        <td >
+                            {{rsvp.response}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr data-ng:if="token != ''">
+            <h1 data-ng:if="token != ''">Groups</h1>
+            <hr data-ng:if="token != ''">
+            <h1 data-ng:if="token != ''">List of Groups By Group Id</h1>
+            <rm-meetup-groups
+                access-token={{token}}
+                group-id = '15557752'
+            >
+            </rm-meetup-groups>
+            <h1 data-ng:if="token != ''">List of Groups By Topic</h1>
+            <rm-meetup-groups
+                access-token={{token}}
+                topic = 'AngularJS'
+            >
+            </rm-meetup-groups>
+            <h1 data-ng:if="token != ''">List of Groups By Parameters</h1>
+            <rm-meetup-groups
+                access-token={{token}}
+                parameters = memberParameter
+            >
+            </rm-meetup-groups>
+            <h1 data-ng:if="token != ''">Table of Groups By Parameters</h1>
+            <rm-meetup-groups
+                access-token={{token}}
+                parameters=memberParameter
+                type='table'
+            >
+            </rm-meetup-groups>
+            <h1 data-ng:if="token != ''">Table of Groups By Parameters With Configurable Fields</h1>
+            <rm-meetup-groups
+                access-token={{token}}
+                parameters=memberParameter
+                type='table'
+                fields=groupFields
+            >
+            </rm-meetup-groups>
+            <hr data-ng:if="token != ''">
+            <h1 data-ng:if="token != ''">Events</h1>
+            <hr data-ng:if="token != ''">
+            <h1 data-ng:if="token != ''">List of Events By Group Id</h1>
+            <rm-meetup-events
+                access-token={{token}}
+                group-id = '15557752'
+            >
+            </rm-meetup-events>
+            <h1 data-ng:if="token != ''">List of Events By Event Id</h1>
+            <rm-meetup-events
+                access-token={{token}}
+                event-id = '220273617'
+            >
+            </rm-meetup-events>
+            <h1 data-ng:if="token != ''">List of Events By Parameters</h1>
+            <rm-meetup-events
+                access-token={{token}}
+                parameters = memberParameter
+            >
+            </rm-meetup-events>
+            <h1 data-ng:if="token != ''">Table of Events By Parameters</h1>
+            <rm-meetup-events
+                access-token={{token}}
+                parameters=memberParameter
+                type='table'
+            >
+            </rm-meetup-events>
+            <h1 data-ng:if="token != ''">Table of Events By Parameters With Configurable Fields</h1>
+            <rm-meetup-events
+                access-token={{token}}
+                parameters=memberParameter
+                type='table'
+                fields=eventFields
+            >
+            </rm-meetup-events>
+        </div>
+        <script src="js/angular.js"></script>
+        <script src="js/angular-sanitize.js"></script>
+        <script src="js/angular-resource.js"></script>
+        <script src="angular-meetup.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
